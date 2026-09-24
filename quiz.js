@@ -16,5 +16,16 @@ const quizContainer = document.getElementById("quiz");
 questions.forEach((q, index) => {
   const questionElement = document.createElement("div");
   questionElement.innerHTML = `<p>${q.question}</p>`;
+  q.answers.forEach((answer) => {
+    const answerElement = document.createElement("button");
+    answerElement.innerText = answer;
+    questionElement.appendChild(answerElement);
+    if (answer === q.correctAnswer) {
+      answerElement.addEventListener("click", () => {
+        score++;
+        alert("Correct!");
+      });
+    }
+  });
   quizContainer.appendChild(questionElement);
 });
