@@ -2,11 +2,58 @@
 <html>
 <head>
 <title>Quiz</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #121212;
+    color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h1 {
+    color: #f5f5f5;
+  }
+
+  #quiz {
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  #quiz p {
+    color: #e5e5e5;
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0 10px;
+  }
+
+  #quiz button {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 10px auto;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 1px solid #2b2b2b;
+    border-radius: 8px;
+    background: #1a1a1a;
+    color: #f2f2f2;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  #quiz button:hover {
+    background: #2f4f9f;
+    transform: translateY(-1px);
+  }
+</style>
 </head>
 <body>
 <h1 style="font-family:Comic Sans MS;text-align:center;">Enfield Grammar School Quiz</h1>
 <div id="quiz"></div>
-<script src="quiz.js"></script>
 <div id="result"></div>
+<script src="quiz.js"></script>
 </body>
 </html>

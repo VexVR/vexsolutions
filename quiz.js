@@ -12,20 +12,47 @@ const questions = [
 ];
 
 let score = 0;
+let currentQuestionIndex = 0;
 const quizContainer = document.getElementById("quiz");
-questions.forEach((q, index) => {
+const resultContainer = document.getElementById("result");
+
+function showQuestion() {
+  quizContainer.innerHTML = "";
+  resultContainer.textContent = "";
+
+  if (currentQuestionIndex >= questions.length) {
+    const percentage = Math.round((score / questions.length) * 100);
+    quizContainer.innerHTML = `
+      <h2>Quiz complete!</h2>
+      <p>You scored ${score} out of ${questions.length}</p>
+      <p>${percentage}%</p>
+    `;
+    resultContainer.textContent = `Final score: ${score}/${questions.length}`;
+    return;
+  }
+
+  const q = questions[currentQuestionIndex];
   const questionElement = document.createElement("div");
-  questionElement.innerHTML = `<p>${q.question}</p>`;
+
+  const questionText = document.createElement("p");
+  questionText.textContent = q.question;
+  questionElement.appendChild(questionText);
+
   q.answers.forEach((answer) => {
     const answerElement = document.createElement("button");
-    answerElement.innerText = answer;
-    questionElement.appendChild(answerElement);
-    if (answer === q.correctAnswer) {
-      answerElement.addEventListener("click", () => {
+    answerElement.type = "button";
+    answerElement.textContent = answer;
+    answerElement.addEventListener("click", () => {
+      if (answer === q.correctAnswer) {
         score++;
-        alert("Correct!");
-      });
-    }
+      }
+      currentQuestionIndex++;
+      showQuestion();
+    });
+    questionElement.appendChild(answerElement);
   });
+
   quizContainer.appendChild(questionElement);
-});
+}
+
+showQuestion();
