@@ -1,12 +1,12 @@
 const questions = [
   {
     question: "What is the capital of France?",
-    answers: ["Berlin", "Madrid", "Paris", "Rome"],
+    answers: ["Berlin", "Verity", "Paris", "Rome"],
     correctAnswer: "Paris"
   },
   {
     question: "What is the largest planet in our solar system?",
-    answers: ["Jupiter", "Saturn", "Earth", "Mars"],
+    answers: ["Jupiter", "Matin", "Earth", "Mars"],
     correctAnswer: "Jupiter"
   }
 ];
